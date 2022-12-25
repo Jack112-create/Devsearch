@@ -1,14 +1,16 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+from .utils import searchProfiles
 from django.contrib import messages
 from .models import Profile, User
 from .forms import CustomUserCreationForm, ProfileForm, SkillForm
 
 def profiles(request):
-  profiles = Profile.objects.all()
+  profiles, search_query = searchProfiles(request)
   context = {
-    'profiles': profiles
+    'profiles': profiles,
+    'search_query': search_query
   }
 
   return render(request, 'users/profiles.html', context)
