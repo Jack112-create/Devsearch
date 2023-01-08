@@ -45,3 +45,7 @@
 .card.card--dark .card__header {
   box-shadow: var(--generic-shadow);
 }
+
+.project a {
+  display: block !important;
+}
