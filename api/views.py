@@ -33,7 +33,7 @@ def getProject(request, pk):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def projectVote(request, pk):
-  project = project.objects.get(id=pk)
+  project = Project.objects.get(id=pk)
   user = request.user.profile
   data = request.data
 
